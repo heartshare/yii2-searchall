@@ -4,15 +4,17 @@ namespace wartron\yii2searchall\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\Response;
 
 class DefaultController extends Controller
 {
     public function actionIndex()
     {
-        $objects = \Yii::$app->getModule('searchall')->objects;
+        $searchForm = new SearchForm;
 
         return $this->render('index',[
-            'objects'   =>  $objects
+            'searchForm'    =>  $searchForm
+            'objects'       =>  \Yii::$app->getModule('searchall')->objects
         ]);
     }
 
