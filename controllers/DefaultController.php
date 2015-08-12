@@ -49,16 +49,16 @@ class DefaultController extends Controller
 
         $query->andFilterWhere($filter);
 
-        $ret = $query->all();
+        $items = $query->all();
 
-        return $this->render('results',[
+        return $this->renderPartial('results',[
             'items'     =>  $items,
             'key'       =>  $key,
             'object'    =>  $thing,
         ]);
 
         // Yii::$app->response->format = Response::FORMAT_JSON;
-        // return $ret;
+        // return $items;
     }
 
 
