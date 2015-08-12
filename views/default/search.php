@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="searchall-index">
 
     <?php
-        echo $this->render('@vendor/wartron/yii2-searchall/views/default/_form',[
+        echo $this->render('_form',[
             'searchForm'    =>  $searchForm,
             'objects'       =>  $objects,
         ]);
