@@ -26,7 +26,7 @@ class Module extends BaseModule
         // ],
         // 'profile'  =>  [
         //     'class' =>  'common\models\Profile',
-        //     'link'  =>  '/user/admin/update',
+        //     'link'  =>  '/user/admin/update-profile',
         //     'linkPk'    =>  ['id'=>'user_id'],
         //     'fields'    =>  [
         //         'name',
