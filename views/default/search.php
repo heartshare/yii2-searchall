@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="searchall-index">
 
     <?php
-        echo $this->render('_form',[
+        echo $this->render('@vendor/wartron/yii2-searchall/views/default/_form',[
             'searchForm'    =>  $searchForm,
             'objects'       =>  $objects,
         ]);
@@ -30,7 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
         foreach($objects as $key => $opts){
             echo Html::panel([
                 'heading'   =>  'Search '.strtoupper($key),
-                'body'   =>  '',
+                'body'      =>  $this->render('_search_widget',[
+                    'searchForm'    =>  $searchForm,
+                    'key'           =>  $key,
+                    'opts'          =>  $opts,
+                ]),
             ]);
         }
 
