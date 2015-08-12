@@ -4,9 +4,6 @@ use kartik\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
 
-use yii\base\DynamicModel;
-use yii\widgets\ActiveForm;
-
 /**
 * @var yii\web\View $this
 * @var yii\data\ActiveDataProvider $dataProvider
@@ -20,18 +17,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="searchall-index">
 
-    <div class="panel panel-default">
-        <div class="panel-heading">Search</div>
-        <div class="panel-body">
-        <?php
-            $form = ActiveForm::begin([
-                'id' => 'searchall',
-            ]);
-            echo $form->field($searchForm, 'search')->textInput();
-            ActiveForm::end();
-        ?>
-        </div>
-    </div>
+    <?php
+        echo $this->render('_form',[
+            'searchForm'    =>  $searchForm,
+            'objects'       =>  $objects,
+        ]);
+    ?>
 
     <div class="panel panel-default">
         <div class="panel-heading">Searching Classes</div>

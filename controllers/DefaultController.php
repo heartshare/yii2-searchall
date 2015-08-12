@@ -5,6 +5,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
+use wartron\yii2searchall\models\SearchForm;
 
 class DefaultController extends Controller
 {
@@ -12,10 +13,18 @@ class DefaultController extends Controller
     {
         $searchForm = new SearchForm;
 
-        return $this->render('index',[
-            'searchForm'    =>  $searchForm
-            'objects'       =>  \Yii::$app->getModule('searchall')->objects
-        ]);
+        if ($searchForm->load(Yii::$app->request->post())) {
+            return $this->render('search',[
+                'searchForm'    =>  $searchForm,
+                'objects'       =>  \Yii::$app->getModule('searchall')->objects
+            ]);
+        } else {
+            return $this->render('index',[
+                'searchForm'    =>  $searchForm,
+                'objects'       =>  \Yii::$app->getModule('searchall')->objects
+            ]);
+        }
+
     }
 
     public function actionSearchapi()
