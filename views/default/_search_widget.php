@@ -1,6 +1,7 @@
 <?php
 
 
+use kartik\helpers\Html;
 use yii\helpers\Url;
 use yii\web\JsExpression;
 
@@ -14,9 +15,12 @@ $js = new JsExpression($rawjs);
 
 $this->registerJs($js);
 
+echo "<div id='searchall-{$key}'>";
 
-?>
-<div id="searchall-<?=$key?>">
-    <strong>Searching</strong> <?=$key?>...
-</div>
+echo Html::panel([
+    'heading'   =>  'Search '.strtoupper($key),
+    'body'      =>  "<strong>Searching</strong> {$key}...",
+]);
+
+echo "</div>";
 

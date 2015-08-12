@@ -30,9 +30,9 @@ class DefaultController extends Controller
     public function actionSearchapi()
     {
         $search = $_GET['search'];
-        $object  = $_GET['object'];
+        $key    = $_GET['object'];
 
-        $thing = \Yii::$app->getModule('searchall')->getObject($object);
+        $thing = \Yii::$app->getModule('searchall')->getObject($key);
 
         $class = $thing['class'];
         $query = $class::find();
@@ -51,8 +51,14 @@ class DefaultController extends Controller
 
         $ret = $query->all();
 
-        Yii::$app->response->format = Response::FORMAT_JSON;
-        return $ret;
+        return $this->render('results',[
+            'items'     =>  $items,
+            'key'       =>  $key,
+            'object'    =>  $thing,
+        ]);
+
+        // Yii::$app->response->format = Response::FORMAT_JSON;
+        // return $ret;
     }
 
 
