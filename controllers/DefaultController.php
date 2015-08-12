@@ -16,12 +16,12 @@ class DefaultController extends Controller
         if ($searchForm->load(Yii::$app->request->post())) {
             return $this->render('search',[
                 'searchForm'    =>  $searchForm,
-                'objects'       =>  \Yii::$app->getModule('searchall')->objects
+                'objects'       =>  \Yii::$app->getModule('searchall')->getObjects(),
             ]);
         } else {
             return $this->render('index',[
                 'searchForm'    =>  $searchForm,
-                'objects'       =>  \Yii::$app->getModule('searchall')->objects
+                'objects'       =>  \Yii::$app->getModule('searchall')->getObjects(),
             ]);
         }
 
@@ -32,7 +32,7 @@ class DefaultController extends Controller
         $search = $_GET['search'];
         $object  = $_GET['object'];
 
-        $thing = \Yii::$app->getModule('searchall')->objects[$object];
+        $thing = \Yii::$app->getModule('searchall')->getObject($object);
 
         $class = $thing['class'];
         $query = $class::find();
