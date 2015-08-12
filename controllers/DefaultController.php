@@ -9,7 +9,11 @@ class DefaultController extends Controller
 {
     public function actionIndex()
     {
-        return $this->render('index');
+        $objects = \Yii::$app->getModule('searchall')->objects;
+
+        return $this->render('index',[
+            'objects'   =>  $objects
+        ]);
     }
 
     public function actionSearchapi()
@@ -17,7 +21,7 @@ class DefaultController extends Controller
         $search = $_GET['search'];
         $object  = $_GET['object'];
 
-        $thing = \Yii::$app->getModule('docker')->objects[$object];
+        $thing = \Yii::$app->getModule('searchall')->objects[$object];
 
         $class = $thing['class'];
         $query = $class::find();

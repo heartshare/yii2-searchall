@@ -20,6 +20,7 @@ class Module extends BaseModule
                 'username',
                 'email',
             ],
+            'link'  =>  '/user/admin/update',
         ],
         'profile'  =>  [
             'class' =>  'common\models\Profile',
@@ -31,18 +32,14 @@ class Module extends BaseModule
                 'website',
                 'bio',
             ],
+            'link'  =>  '/user/admin/update',
         ],
         'gizmo'  =>  [
             'class' =>  'common\models\Gizmo',
             'fields'    =>  [
                 'name',
             ],
-        ],
-        'team'  =>  [
-            'class' =>  'common\models\Team',
-            'fields'    =>  [
-                'name',
-            ],
+            'link'  =>  '/crud/gizmo/view',
         ],
     ];
 
