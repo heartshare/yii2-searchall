@@ -1,6 +1,6 @@
 {
     "name": "wartron/yii2-searchall",
-    "description": "Yii2 Docker Module",
+    "description": "Yii2 Search All Admim Module",
     "keywords": ["yii2", "yii2-admin", "search"],
     "type": "yii2-extension",
     "license": "MIT",
