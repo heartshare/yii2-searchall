@@ -13,6 +13,10 @@ class Module extends BaseModule
 {
     const VERSION = '0.0.1-dev';
 
+
+    public $searchParam = 'search';
+    public $objectParam = 'object';
+
     /** @var array of objects to search, this is an example  */
     public $objects = [
         // 'user'  =>  [

@@ -5,7 +5,13 @@ use kartik\helpers\Html;
 use yii\helpers\Url;
 use yii\web\JsExpression;
 
-$url = Url::to(['/searchall/default/searchapi', 'object' => $key, 'search' => $searchForm->q ]);
+$module = \Yii::$app->getModule('searchall');
+
+$url = Url::to([
+    '/searchall/default/searchapi',
+    $module->objectParam => $key,
+    $module->searchParam => $searchForm->q
+]);
 
 $rawjs = <<< JAVASCRIPT
     $('#searchall-{$key}').load('{$url}');

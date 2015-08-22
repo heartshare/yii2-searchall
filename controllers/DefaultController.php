@@ -29,10 +29,12 @@ class DefaultController extends Controller
 
     public function actionSearchapi()
     {
-        $search = $_GET['search'];
-        $key    = $_GET['object'];
+        $module = \Yii::$app->getModule('searchall');
 
-        $thing = \Yii::$app->getModule('searchall')->getObject($key);
+        $search = Yii::$app->request->get($module->searchParam);
+        $key    = Yii::$app->request->get($module->objectParam);
+
+        $thing = $module->getObject($key);
 
         $class = $thing['class'];
         $query = $class::find();
